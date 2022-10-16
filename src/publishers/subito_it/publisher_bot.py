@@ -57,7 +57,6 @@ class PublisherBot(AbstractBot):
     def publish(self, ad_json: dict, submit: bool = True) -> PublisherItem:
         """publish classified ad"""
         data = PublisherItem(**ad_json)
-        print(f"publishing: {data.ad_title} ...")
         self.__publish_start()
         self.__publish_select_ad_category_1st(data.ad_category)
         self.__publish_select_ad_type(data.ad_type)

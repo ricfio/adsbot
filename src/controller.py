@@ -43,8 +43,8 @@ class Controller:
     def list_ads(self):
         """list ads"""
         ads_list = self.datasource.list()
-        for i, item in enumerate(ads_list, start = 1):
-            print(f"{i:2d}: {item['ad_title']}")
+        for i, ad_json in enumerate(ads_list, start = 1):
+            self.__print_ad_json(i, ad_json)
 
     def publish(self):
         """publish ads"""
@@ -54,5 +54,9 @@ class Controller:
         ads_list = self.datasource.list()
         for publisher in self.publishers:
             for i, ad_json in enumerate(ads_list, start = 1):
-                print(f"{i:2d}: {ad_json['ad_title']}")
+                self.__print_ad_json(i, ad_json)
                 publisher.publish(ad_json)
+
+    @staticmethod
+    def __print_ad_json(i: int, data: dict):
+        print(f"{i:2d}: {data['ad_title']:60s} € {data['item_price']:2d} (+ {data['shipping']:2d})")
