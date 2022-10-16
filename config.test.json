@@ -1,0 +1,16 @@
+{
+  "datasource": {
+    "name": "json_file_reader",
+    "args": {
+      "adlist_json_path": "./data/test/ads_subito_it.json",
+      "images_base_path": "./data/test/images"
+    }
+  },
+  "publishers": [
+    {
+      "name": "subito_it",
+      "args": {
+      }
+    }
+  ]
+}

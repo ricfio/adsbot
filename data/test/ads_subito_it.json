@@ -1,0 +1,54 @@
+[
+    {
+        "ad_category": ["Tutto per i bambini", "Prodotti per l'infanzia", "0 - 12 mesi"],
+        "ad_title": "Set Lettino / Paracolpi Chicco (5 pezzi)",
+        "ad_description": "Set Lettino/Paracolpi Chicco di ottima fattura nella sua confezione originale.\nColore verde e bianco con alberi e coniglietto.\nOttime condizioni come da foto, composto da 5 pezzi: \n- Paracolpi\n- Federa Paracolpi\n- Piumino\n- Federa Piumino\n- Federa Cuscino (+ Cuscino)\n\nDa ritirare personalmente a Faenza.\nIn alternativa posso spedire in tutta Italia al costo ulteriore di EURO 12,00.\n\nTel. 345-6789012 dalle ore 18:00, oppure sempre tramite Whatsapp.",
+        "item_condition": "Ottimo - poco usato e ben conservato",
+        "item_images": [
+            "set-lettino-chicco/set-lettino-chicco-01.jpg",
+            "set-lettino-chicco/set-lettino-chicco-02.jpg",
+            "set-lettino-chicco/set-lettino-chicco-03.jpg"
+        ],
+        "item_price": 29,
+        "shipping": 12,
+        "delivery_town": "Faenza (RA)",
+        "author_name": "Riccardo",
+        "author_phone": "345 6789012"
+    },
+    {
+        "ad_category": ["Audio/Video", "Lettori DVD"],
+        "ad_title": "Lettore DVD / DivX mpMan XV-D310",
+        "ad_description": "Lettore DVD /DivX perfettamente funzionante, completo di telecomando e manuale originale.\nOttime condizioni come da foto.\n\nDa ritirare personalmente a Faenza.\nIn alternativa posso spedire in tutta Italia al costo ulteriore di EURO 12,00.\n\nTel. 345-6789012 dalle ore 18:00, oppure sempre tramite Whatsapp.",
+        "item_condition": "Ottimo - poco usato e ben conservato",
+        "item_images": [
+            "lettore-divx/lettore-divx-01.jpg",
+            "lettore-divx/lettore-divx-02.jpg",
+            "lettore-divx/lettore-divx-03.jpg",
+            "lettore-divx/lettore-divx-04.jpg",
+            "lettore-divx/lettore-divx-05.jpg",
+            "lettore-divx/lettore-divx-06.jpg"
+        ],
+        "item_price": 19,
+        "shipping": 12,
+        "delivery_town": "Faenza (RA)",
+        "author_name": "Riccardo",
+        "author_phone": "345 6789012"
+    },
+    {
+        "ad_category": ["Collezionismo", "Francobolli"],
+        "ad_title": "Marche da bollo / Patente (1988, 1995, 1996, 1997)",
+        "ad_description": "Marche da bollo per Patente, in buone condizioni (come da foto):\n- anno 1988 (Lire 15.000)\n- anno 1995 (Lire 50.000)\n- anno 1996 (Lire 70.000)\n- anno 1997 (Lire 70.000)\n\nPosso spedire in tutta Italia al costo ulteriore di EURO 3,00.\n\nTel. 345-6789012 dalle ore 18:00, oppure sempre tramite Whatsapp.",
+        "item_condition": "Buono - usato ma ben conservato",
+        "item_images": [
+            "marche-patente/marca-patente-88-1.jpg",
+            "marche-patente/marca-patente-95-1.jpg",
+            "marche-patente/marca-patente-96-1.jpg",
+            "marche-patente/marca-patente-97-1.jpg"
+        ],
+        "item_price": 16,
+        "shipping": 3,
+        "delivery_town": "Faenza (RA)",
+        "author_name": "Riccardo",
+        "author_phone": "345 6789012"
+    }
+]
