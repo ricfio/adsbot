@@ -1,7 +1,3 @@
-!data/prod/.gitkeep
-!data/prod/images/.gitkeep
-data/prod/
-
 __pycache__/
 .pytest_cache/
 
