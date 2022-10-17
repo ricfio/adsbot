@@ -40,8 +40,15 @@ class PublisherBot(AbstractBot):
             browser = self.get_browser()
             # go login page
             browser.get(self.__URL_LOGIN)
-            # accept cookies
-            browser.get_element(By.ID, 'didomi-notice-agree-button').click()
+            # accept cookies (if dialog is present)
+            accept_cookies = browser.get_element(
+                By.ID,
+                'didomi-notice-agree-button',
+                timeout=0,
+                raise_exception=False,
+            )
+            if accept_cookies:
+                accept_cookies.click()
             # insert username
             browser.write_text(By.ID, 'username', self.__username)
             # insert password
