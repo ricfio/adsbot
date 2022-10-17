@@ -204,9 +204,12 @@ class PublisherBot(AbstractBot):
     def __publish_submit(self, submit: bool):
         """submit the ad to publish"""
         browser = self.get_browser()
-        # Submit click (step 1/3)
+        # Submit click (step 1/4)
         browser.get_element(By.ID, 'btnAiSubmit').send_keys(Keys.RETURN)
-        # Confirm check (step 2/3) - wait until preview showing is completed
-        browser.get_element(By.CSS_SELECTOR, "article[id='aiPreview'][style='display: block;']", 5)
-        # Confirm click (step 3/3)
+        # Confirm check (step 2/4) - wait until preview showing is completed
+        browser.get_element(By.CSS_SELECTOR, "article[id='aiPreview'][style='display: block;']", 10)
+        # Confirm click (step 3/4)
         browser.click_element(By.ID, 'btnConfirm', 0, submit)
+        # Submit click (step 4/4) - wait until promotions page showing is completed
+        if submit:
+            browser.get_element(By.CSS_SELECTOR, "button[type='submit']", 10)
