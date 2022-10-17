@@ -12,6 +12,17 @@ from src.publishers.subito_it.publisher_bot import PublisherBot
 class TestSubitoIt:
     """test publisher subito_it"""
 
+    def test_logout_and_login(self, bot: PublisherBot):
+        """test logout and login"""
+        # force loging (if not logged)
+        bot.login()
+        # test logout
+        result = bot.logout()
+        assert result is True
+        # test login
+        result = bot.login()
+        assert result is True
+
     def test_publish(self, bot: PublisherBot, ads_json_subito_it: dict):
         """test publish ad item"""
         data = bot.publish(ads_json_subito_it, False)

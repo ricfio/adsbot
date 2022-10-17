@@ -21,7 +21,11 @@ class AbstractBot(ABC):
 
     @abstractmethod
     def login(self) -> bool:
-        """user login"""
+        """do login"""
+
+    @abstractmethod
+    def logout(self) -> bool:
+        """do login"""
 
     @abstractmethod
     def publish(self, ad_json: dict, submit: bool = True) -> bool:

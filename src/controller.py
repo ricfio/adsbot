@@ -57,6 +57,7 @@ class Controller:
             for i, ad_json in enumerate(ads_list, start = 1):
                 self.__print_ad_json(i, ad_json)
                 publisher.publish(ad_json)
+            publisher.logout()
 
     @staticmethod
     def __print_ad_json(i: int, data: dict):

@@ -61,6 +61,19 @@ class PublisherBot(AbstractBot):
 
         return self.__logged
 
+    def logout(self) -> bool:
+        """do logout"""
+        if self.__logged:
+            browser = self.get_browser()
+            # go logout page
+            browser.get(self.__URL_LOGOUT)
+            # wait until logout is completed (wait for login button showing is completed)
+            login_button = browser.get_element(By.CSS_SELECTOR, "button[type='submit'] > span", 10)
+            if 'Accedi' == login_button.get_attribute('innerHTML'):
+                self.__logged = False
+        
+        return not self.__logged
+
     def publish(self, ad_json: dict, submit: bool = True) -> PublisherItem:
         """publish classified ad"""
         data = PublisherItem(**ad_json)
