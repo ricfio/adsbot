@@ -49,7 +49,7 @@ class PublisherBot(AbstractBot):
             # submit login
             browser.get_element(By.CSS_SELECTOR, "button[type='submit']").send_keys(Keys.RETURN)
             # wait until login is completed (wait for logout link)
-            logout_link = browser.get_element(By.CSS_SELECTOR, f"a[href='{self.__URL_LOGOUT}']", 5)
+            logout_link = browser.get_element(By.CSS_SELECTOR, f"a[href='{self.__URL_LOGOUT}']", 10)
             self.__logged = (logout_link is not None)
 
         return self.__logged
@@ -112,7 +112,7 @@ class PublisherBot(AbstractBot):
             else:
                 tag = None
             if tag:
-                browser.select_option_by_text(By.NAME, tag, ad_category[1], timeout=5)
+                browser.select_option_by_text(By.NAME, tag, ad_category[1], timeout=10)
         # Sub-Category (2)
         if len(ad_category)>2:
             if ad_category[0]=='Auto':
@@ -124,7 +124,7 @@ class PublisherBot(AbstractBot):
             else:
                 tag = None
             if tag:
-                browser.select_option_by_text(By.NAME, tag, ad_category[2], timeout=5)
+                browser.select_option_by_text(By.NAME, tag, ad_category[2], timeout=10)
         # Sub-Category (3)
         if len(ad_category)>3:
             if ad_category[0]=='Auto':
@@ -132,7 +132,7 @@ class PublisherBot(AbstractBot):
             else:
                 tag = None
             if tag:
-                browser.select_option_by_text(By.NAME, tag, ad_category[3], timeout=5)
+                browser.select_option_by_text(By.NAME, tag, ad_category[3], timeout=10)
 
     def __publish_select_item_condition(self, item_condition: str):
         """select the item condition"""
@@ -150,7 +150,7 @@ class PublisherBot(AbstractBot):
             # upload files (with max images limit)
             browser.upload_files(By.NAME, 'fileElem', images_list)
             # wait until the last upload will be completed
-            browser.get_element(By.ID, 'image_' + str(images_size-1), 5 * images_size)
+            browser.get_element(By.ID, 'image_' + str(images_size-1), 10 * images_size)
 
     def __publish_write_ad_title(self, ad_title: str):
         """write the ad title"""
@@ -180,14 +180,14 @@ class PublisherBot(AbstractBot):
 
             if shipping and shipping_cost > 0:
                 browser.select_radio(By.CSS_SELECTOR, "input[name='item_shipping_type'][value='1']")
-                browser.write_text(By.ID, 'item_shipping_cost', shipping_cost, 5)
+                browser.write_text(By.ID, 'item_shipping_cost', shipping_cost, 10)
 
     def __publish_write_delivery_town(self, delivery_town: str):
         """write the delivery town for the item"""
         if delivery_town:
-            sleep(0.5)
+            sleep(1.0)
             browser = self.get_browser()
-            browser.write_text(By.ID, 'town', delivery_town, 5).send_keys(Keys.TAB)
+            browser.write_text(By.ID, 'town', delivery_town, 10).send_keys(Keys.TAB)
 
     def __publish_compile_author(self, author_type: int, author_name: str, author_phone: str):
         """compile ad author informations"""
