@@ -53,6 +53,7 @@ class Controller:
 
         ads_list = self.datasource.list()
         for publisher in self.publishers:
+            publisher.login()
             for i, ad_json in enumerate(ads_list, start = 1):
                 self.__print_ad_json(i, ad_json)
                 publisher.publish(ad_json)
