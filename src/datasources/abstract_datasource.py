@@ -7,7 +7,7 @@ class AbstractDataSource(ABC):
     """abstract datasource"""
 
     @abstractmethod
-    def list(self):
+    def list(self, offset: int = None, limit: int = None):
         """Return items"""
 
     @abstractmethod

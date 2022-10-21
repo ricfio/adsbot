@@ -19,11 +19,27 @@ class CLI:
 
     def execute_command(self, argv):
         """execute command"""
+        offset = None
+        limit = None
         # parse CLI request
-        _, args = getopt.getopt(argv,"h",["help"])
+        opts, args = getopt.getopt(argv,"ho:l:",["help", "offset=", "limit="])
         if len(args)==0:
             self.print_usage()
         else:
+            for opt, arg in opts:
+                if opt == '-h':
+                    self.print_usage()
+                    sys.exit()
+                elif opt in ("-o", "--offset"):
+                    try:
+                        offset = int(arg)
+                    except Exception:
+                        offset = None
+                elif opt in ("-l", "--limit"):
+                    try:
+                        limit = int(arg)
+                    except Exception:
+                        limit = None
             # execute CLI command
             controller = self.kernel.get_controller()
             commands = {
@@ -31,7 +47,7 @@ class CLI:
                 'publish': controller.publish,
             }
             callback = commands.get(args[0], self.print_usage)
-            callback()
+            callback(offset, limit)
 
     @classmethod
     def process(cls,argv):
@@ -66,9 +82,13 @@ class CLI:
         """print usage information"""
         name = os.path.basename(sys.argv[0])
         print()
-        print(f'usage: {name} [--help] <command>')
+        print(f'usage: {name} [--help] [--offset=<offset>] [--limit=<limit>] <command>')
+        print()
+        print('options')
+        print(' --offset             Fetch ads starting from <offset>')
+        print(' --limit              Fetch ads limit to <limit> items')
         print()
         print('<command>')
-        print(' - list               List ads')
-        print(' - publish            Publish ads')
+        print('   list               List ads')
+        print('   publish            Publish ads')
         print()

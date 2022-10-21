@@ -104,6 +104,7 @@ This software has been implemented in [Python](https://www.python.org/) language
 
 Some features could be implemented in the next releases are:
 
-- [ ] Improve CLI to select only a subset of ads
+- [X] Improve CLI to select only a subset of ads (--offset=, --limit=)
+- [ ] Add tests for CLI
 - [ ] Implement new alternative datasources to fetch ads (for example: from Databases, API, etc.)
 - [ ] Add other service providers to support ads multi publishing

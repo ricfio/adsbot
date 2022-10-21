@@ -40,22 +40,22 @@ class Controller:
 
         return cls(datasource, publishers)
 
-    def list_ads(self):
+    def list_ads(self, offset: int = None, limit: int = None):
         """list ads"""
-        ads_list = self.datasource.list()
+        ads_list = self.datasource.list(offset, limit)
         for i, ad_json in enumerate(ads_list, start = 1):
-            self.__print_ad_json(i, ad_json)
+            self.__print_ad_json(i + (offset or 0), ad_json)
 
-    def publish(self):
+    def publish(self, offset: int = None, limit: int = None):
         """publish ads"""
         ads_list: list[dict]
         publisher: AbstractBot
 
-        ads_list = self.datasource.list()
+        ads_list = self.datasource.list(offset, limit)
         for publisher in self.publishers:
             publisher.login()
             for i, ad_json in enumerate(ads_list, start = 1):
-                self.__print_ad_json(i, ad_json)
+                self.__print_ad_json(i + (offset or 0), ad_json)
                 publisher.publish(ad_json)
             publisher.logout()
 

@@ -4,7 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
         {
             "name": "adsbot list",
             "type": "python",
@@ -20,6 +19,32 @@
             "request": "launch",
             "program": "adsbot.py",
             "args": ["publish"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "adsbot list (--offset=3 --limit=5)",
+            "type": "python",
+            "request": "launch",
+            "program": "adsbot.py",
+            "args": [
+                "--offset=3",
+                "--limit=5",
+                "list",
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "adsbot publish (--offset=1 --limit=1)",
+            "type": "python",
+            "request": "launch",
+            "program": "adsbot.py",
+            "args": [
+                "--offset=1",
+                "--limit=1",
+                "publish",
+            ],
             "console": "integratedTerminal",
             "justMyCode": true
         },
