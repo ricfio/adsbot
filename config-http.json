@@ -1,0 +1,16 @@
+{
+  "datasource": {
+    "name": "json_http_client",
+    "args": {
+      "adlist_json_url": "http://host.docker.internal:3042/publishers/subito_it/ads",
+      "images_base_path": "./data/prod/images"
+    }
+  },
+  "publishers": [
+    {
+      "name": "subito_it",
+      "args": {
+      }
+    }
+  ]
+}

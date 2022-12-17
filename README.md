@@ -58,7 +58,7 @@ Update your `.env` file adding `SUBITO_USERNAME` and `SUBITO_PASSWORD` variables
 
 ```yaml
 # Application Config Path (for Dependency Injection)
-CONFIG_PATH=config.json
+CONFIG_PATH=config-file.json
 
 # Subito.it
 SUBITO_USERNAME=
@@ -100,11 +100,42 @@ You can found some examples of ads in the json file used for the automatic testi
 
 This software has been implemented in [Python](https://www.python.org/) language and uses [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/).
 
+### Supported Datasource Providers
+
+The supported datasource providers are:  
+
+- json_file_reader: Fetch ads in json format reading from a local file.
+- json_http_client: Fetch ads in json format sending a HTTP request.
+
+Example of configuration for json_file_reader:
+
+```json
+  "datasource": {
+    "name": "json_file_reader",
+    "args": {
+      "adlist_json_path": "./data/test/ads_subito_it.json",
+      "images_base_path": "./data/test/images"
+    }
+  },
+```
+
+Example of configuration for json_file_reader:
+
+```json
+  "datasource": {
+    "name": "json_http_client",
+    "args": {
+      "adlist_json_path": "http://host.docker.internal:3042/publishers/subito_it/ads",
+      "images_base_path": "./data/test/images"
+    }
+  },
+```
+
 ### TODO
 
 Some features could be implemented in the next releases are:
 
 - [X] Improve CLI to select only a subset of ads (--offset=, --limit=)
 - [ ] Add tests for CLI
-- [ ] Implement new alternative datasources to fetch ads (for example: from Databases, API, etc.)
+- [X] Implement new alternative datasources to fetch ads (for example: from Databases, API, etc.)
 - [ ] Add other service providers to support ads multi publishing

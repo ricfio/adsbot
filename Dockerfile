@@ -20,7 +20,8 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
-RUN apt update && export DEBIAN_FRONTEND=noninteractive \
+RUN apt update \
+    && export DEBIAN_FRONTEND=noninteractive \
     && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /tmp \
     && dpkg -i /tmp/google-chrome-stable_current_amd64.deb || true \
     && rm /tmp/google-chrome-stable_current_amd64.deb \
@@ -28,5 +29,5 @@ RUN apt update && export DEBIAN_FRONTEND=noninteractive \
     && apt -y install --no-install-recommends git-flow \
     && apt clean \
     && pip install --upgrade pip \
-    && pip install selenium webdriver-manager pytest python-dotenv\
+    && pip install selenium webdriver-manager pytest python-dotenv requests \
     && echo "export DISPLAY=host.docker.internal:0.0" >> ~/.bashrc
