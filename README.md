@@ -96,6 +96,20 @@ You can found some examples of ads in the json file used for the automatic testi
 
 - `./data/test/ads_subito_it.json`
 
+## Testing
+
+To run the all test suites:
+
+```bash
+pytest
+```
+
+To run a specific test only:
+
+```bash
+pytest tests/integration/test_subito_it_bot.py -k 'ads_json_subito_it0'
+```
+
 ## Appendix
 
 This software has been implemented in [Python](https://www.python.org/) language and uses [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/).
