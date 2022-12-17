@@ -99,6 +99,9 @@ class PublisherBot(AbstractBot):
 
         browser = self.get_browser()
         browser.get(self.__URL_PUBLISH)
+        # Wait for element #btnAiSubmit to be sure that subit-form is ready
+        browser.get_element(By.ID, 'btnAiSubmit', 20)
+
 
     def __publish_select_ad_category_1st(self, ad_category: list):
         """select the main category"""
