@@ -65,6 +65,7 @@ class PublisherItem:
                 'Informatica',
                 'Audio/Video',
                 'Collezionismo',
+                'Telefonia',
             ]:
                 raise Exception(f"unknown category '{value}'")
 

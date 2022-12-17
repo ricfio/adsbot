@@ -61,4 +61,4 @@ class Controller:
 
     @staticmethod
     def __print_ad_json(i: int, data: dict):
-        print(f"{i:2d}: {data['ad_title']:60s} € {data['item_price']:2d} (+ {data['shipping']:2d})")
+        print(f"{i:2d}: {data['ad_title']:60s} € {data['item_price']:3d} (+ {data['shipping']:2d})")

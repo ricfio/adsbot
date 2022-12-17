@@ -129,6 +129,8 @@ class PublisherBot(AbstractBot):
                 tag = 'audiovideo_type'
             elif ad_category[0]=='Collezionismo':
                 tag = 'hobby_type'
+            elif ad_category[0]=='Telefonia':
+                tag = 'phone_type'
             else:
                 tag = None
             if tag:
