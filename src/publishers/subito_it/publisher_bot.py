@@ -56,7 +56,7 @@ class PublisherBot(AbstractBot):
             # submit login
             browser.get_element(By.CSS_SELECTOR, "button[type='submit']").send_keys(Keys.RETURN)
             # wait until login is completed (wait for logout link)
-            logout_link = browser.get_element(By.CSS_SELECTOR, f"a[href='{self.__URL_LOGOUT}']", 10)
+            logout_link = browser.get_element(By.CSS_SELECTOR, f"a[href='{self.__URL_LOGOUT}']", 20)
             self.__logged = (logout_link is not None)
 
         return self.__logged
@@ -68,7 +68,7 @@ class PublisherBot(AbstractBot):
             # go logout page
             browser.get(self.__URL_LOGOUT)
             # wait until logout is completed (wait for login button showing is completed)
-            login_button = browser.get_element(By.CSS_SELECTOR, "button[type='submit'] > span", 10)
+            login_button = browser.get_element(By.CSS_SELECTOR, "button[type='submit'] > span", 20)
             if 'Accedi' == login_button.get_attribute('innerHTML'):
                 self.__logged = False
         
@@ -172,7 +172,7 @@ class PublisherBot(AbstractBot):
             # upload files (with max images limit)
             browser.upload_files(By.NAME, 'fileElem', images_list)
             # wait until the last upload will be completed
-            browser.get_element(By.ID, 'image_' + str(images_size-1), 10 * images_size)
+            browser.get_element(By.ID, 'image_' + str(images_size-1), 20 * images_size)
 
     def __publish_write_ad_title(self, ad_title: str):
         """write the ad title"""
@@ -229,9 +229,9 @@ class PublisherBot(AbstractBot):
         # Submit click (step 1/4)
         browser.get_element(By.ID, 'btnAiSubmit').send_keys(Keys.RETURN)
         # Confirm check (step 2/4) - wait until preview showing is completed
-        browser.get_element(By.CSS_SELECTOR, "article[id='aiPreview'][style='display: block;']", 10)
+        browser.get_element(By.CSS_SELECTOR, "article[id='aiPreview'][style='display: block;']", 20)
         # Confirm click (step 3/4)
         browser.click_element(By.ID, 'btnConfirm', 0, submit)
         # Submit click (step 4/4) - wait until promotions page showing is completed
         if submit:
-            browser.get_element(By.CSS_SELECTOR, "button[type='submit']", 10)
+            browser.get_element(By.CSS_SELECTOR, "button[type='submit']", 20)
