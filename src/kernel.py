@@ -61,7 +61,7 @@ class Kernel:
                 usecwd = False,
             )
             if os.path.exists(dotenv_path):
-                load_dotenv(dotenv_path = dotenv_path, override = True)
+                load_dotenv(dotenv_path = dotenv_path, override = False)
         return dotenv_list
 
     @staticmethod
