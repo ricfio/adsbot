@@ -45,15 +45,14 @@ class Kernel:
         return os.getenv('ENV', '')
 
     @staticmethod
-    def __load_environment_variables(environment) -> list[str]:
+    def __load_environment_variables(environment: str = None) -> list[str]:
         """load environment variables"""
-        dotenv_list = [
-            '.env',
-            '.env.local',
-        ]
+        dotenv_list = []
         if environment:
-            dotenv_list.append(f'.env.{environment}')
             dotenv_list.append(f'.env.{environment}.local')
+            dotenv_list.append(f'.env.{environment}')
+        dotenv_list.append('.env.local')
+        dotenv_list.append('.env')
         for dotenv_file in dotenv_list:
             dotenv_path = find_dotenv(
                 filename = dotenv_file,
